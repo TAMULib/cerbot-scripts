@@ -1,4 +1,4 @@
-# cerbot-scripts
+# certbot-scripts
 Python scripts that integrate with certbot.
 
 # certbot-infoblox.py
