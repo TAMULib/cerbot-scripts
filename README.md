@@ -19,7 +19,7 @@ The process of the script is as follows:
 
 4. If the renewal completes successfully, then the script will rename the old certificate+private key files, copy the new certificate file and private key to the CERT_DIR directory, set the file ownership to CERT_OWNER and CERT_GROUP, and then all records the script created in Infoblox.
 
-5. Once all certificates have been renewed (or attempted to be renewed), the script will then check if the certificate has a "post-script" file within the POST_SCRIPTS_DIR directory. For example, if we renewed the certificate for "*.example.com", then it will look for a file named "_.example.com.sh" within the POST_SCRIPTS_DIR directory. If the script exists, it will execute it. This is where certificated are converted from PEM to PFX (if necessary), and also where certificates are distributed to the services that need them.
+5. Once all certificates have been renewed (or attempted to be renewed), the script will then check if the certificate has a "post-script" file within the POST_SCRIPTS_DIR directory. For example, if we renewed the certificate for "*.example.com", then it will look for a file named "_.example.com.sh" within the POST_SCRIPTS_DIR directory. If we renewed a multi-domain cert, then it will use the first domain in the entry to search for its associated post-script file (e.g. proxy1.example.com,proxy2.example.com will look for proxy1.example.com.sh). If the script exists, it will execute it. This is where certificated are converted from PEM to PFX (if necessary), and also where certificates are distributed to the services that need them.
 
 6. A summary alert e-mail will be sent to the email set as CONTACT_EMAIL.
 
